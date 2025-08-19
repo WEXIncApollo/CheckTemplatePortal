@@ -88,6 +88,45 @@ npm run build
 yarn build
 ```
 
+### VS Code Run and Debug
+
+To use the VS Code's integrated debugger for a more efficient development workflow, follow these steps:
+
+**Create launch.json file:**
+
+1. Open the Run and Debug tab in the VS Code sidebar (Ctrl + Shift + D).
+2. Click on the gear icon or the "create a launch.json file" link.
+3. Select Node.js from the environment dropdown.
+
+**Configure launch.json:**
+
+The created file will be in a new .vscode folder. Replace its content with the following configuration to run the project using the "Run Script: start" command.
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run npm start",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ]
+}
+```
+
+**Start the Debugger:**
+
+1. In the Run and Debug view, select "Run npm start" from the dropdown menu at the top.
+2. Close the launch.json file.
+3. Press F5 on your keyboard to start the server and the debugger.
+4. The server will run in the integrated terminal, and you will be able to set breakpoints in your code.
+
 ## 📖 Usage Guide
 
 ### Designing a Check
